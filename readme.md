@@ -17,9 +17,18 @@ pip3 install request
 ### Customisation
 
 - set your delay between change in seconde
-  ![alt text](https://media.discordapp.net/attachments/849279007626625024/969271042222723172/unknown.png)
+- ![alt text](https://media.discordapp.net/attachments/849279007626625024/969271042222723172/unknown.png)
 
 ### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
+
+- to get your X-X-CSRFToken, X-Instagram-AJAX and instagram cookie you'll need to got to your [accout edit page](https://www.instagram.com/accounts/edit/)
+- open the dev tool and go the the networks tab
+- ![alt text](https://cdn.discordapp.com/attachments/849279007626625024/969274423481868329/unknown.png)
+- click on one of the request
+- ![alt text](https://media.discordapp.net/attachments/849279007626625024/969275638802423888/unknown.png)
+- then scorll all the way down on the request tab and you have all the stuff you need
+- ![alt text](https://media.discordapp.net/attachments/849279007626625024/969277032829714482/unknown.png)
+- if on of them is missing try another request
 
 ## What does this script do ?
 
@@ -29,6 +38,7 @@ the script will change your instagram profile picture every x time, by using you
 
 - Install all dependencies
 - clone or download the repo
+- create a pfp_list directory
 - put your profiles pictures in the pfp_list directory
 - add your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://github.com/TheWindFlower/instagram_profile_picture_changer#get-x-csrftoken-x-instagram-ajax-and-instagram-cookie) in the script
 - [set your delay](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
