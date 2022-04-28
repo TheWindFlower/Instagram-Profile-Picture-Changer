@@ -3,7 +3,8 @@ import requests
 from time import sleep, time
 from random import shuffle
 
-main_path = '/pfp_list'
+main_path = '/pfp_list'  # <----
+delay = 3600  # <----
 
 
 def write_to_log(data):
@@ -62,4 +63,4 @@ def change_every_x_time(time):
 
 
 if __name__ == "__main__":
-    change_every_x_time(3600)
+    change_every_x_time(delay)
