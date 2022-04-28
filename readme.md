@@ -16,7 +16,7 @@ pip3 install request
 
 ### Customisation
 
-- ![set your delat between change](https://cdn.discordapp.com/attachments/849279007626625024/969270550969065492/unknown.png)
+- set your delay between change in seconde ![alt text](https://media.discordapp.net/attachments/849279007626625024/969271042222723172/unknown.png)
 
 ### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
 

@@ -3,7 +3,7 @@ import requests
 from time import sleep, time
 from random import shuffle
 
-main_path = '/pfp_list'  # <----
+main_path = '/pfp_list'
 delay = 3600  # <----
 
 
