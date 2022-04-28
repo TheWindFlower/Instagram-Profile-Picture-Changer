@@ -6,13 +6,15 @@
 
 - Python 3.9 (not tested on older version but a least python 3.7)
 - [request library](https://docs.python-requests.org/en/latest/) to make the request
-- your [X-CSRFToken, X-Instagram-AJAX and instagram cookie]
+- your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://docs.python-requests.org/en/latest/)
 
 ### Install all requirements :
 
 ```
 pip3 install request
 ```
+
+## get X-CSRFToken, X-Instagram-AJAX and instagram cookie
 
 ## What does this script do ?
 
