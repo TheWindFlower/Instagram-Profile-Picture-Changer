@@ -26,9 +26,10 @@ pip3 install request
 - ![alt text](https://cdn.discordapp.com/attachments/849279007626625024/969274423481868329/unknown.png)
 - click on one of the request
 - ![alt text](https://media.discordapp.net/attachments/849279007626625024/969275638802423888/unknown.png)
-- then scorll all the way down on the request tab and you have all the stuff you need
+- then scroll all the way down on the request tab and you have all the stuff you need(if on of them is missing try another request)
 - ![alt text](https://media.discordapp.net/attachments/849279007626625024/969277032829714482/unknown.png)
-- if on of them is missing try another request
+- now you just need to put them in the script :
+- ![alt text](https://media.discordapp.net/attachments/849279007626625024/969279156275798066/unknown.png)
 
 ## What does this script do ?
 
