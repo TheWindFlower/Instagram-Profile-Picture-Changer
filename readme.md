@@ -14,6 +14,12 @@
 pip3 install request
 ```
 
+### Customisation
+
+- ![set your delat between change](https://cdn.discordapp.com/attachments/849279007626625024/969270550969065492/unknown.png)
+
+### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
+
 ## What does this script do ?
 
 the script will change your instagram profile picture every x time, by using your cookie
@@ -24,12 +30,5 @@ the script will change your instagram profile picture every x time, by using you
 - clone or download the repo
 - put your profiles pictures in the pfp_list directory
 - add your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://github.com/TheWindFlower/instagram_profile_picture_changer#get-x-csrftoken-x-instagram-ajax-and-instagram-cookie) in the script
-- [set your delay and the path to the script directory](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
+- [set your delay](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
 - run the code and have fun
-
-## Customisation
-
-- 1
-- 2
-
-## get X-CSRFToken, X-Instagram-AJAX and instagram cookie
