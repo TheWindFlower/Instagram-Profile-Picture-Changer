@@ -31,9 +31,8 @@ def upload_image(path_pic):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.9 Safari/537.36",
         "Accept": "*/*",
         "Accept-Language": "en-US,en;q=0.5",
-        # <---- your instagram account page (exe:https://www.instagram.com/garfield/)
         "Accept-Encoding": "gzip, deflate, br",
-        "Referer": "YOUR_INTAGRAM_ACCOUT_PAGE",
+        "Referer": "YOUR_INTAGRAM_ACCOUT_PAGE", # <---- your instagram account page (exe:https://www.instagram.com/garfield/)
         "X-CSRFToken": "YOUR_X-CSRFToken",  # <---- your X-CSRFToken
         "X-Instagram-AJAX": "YOUR_X-Instagram-AJAX",  # <---- your X-Instagram-AJAX
         "X-Requested-With": "XMLHttpRequest",
