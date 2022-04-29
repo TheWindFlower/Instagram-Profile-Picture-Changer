@@ -3,9 +3,11 @@ import requests
 from time import sleep, time
 from random import shuffle
 
-main_path = '/pfp_list'
-delay = 3600  # <----
+main_path = 'YOUR_PATH' # <---- your path to the directory of the python file
+delay = 3600  # <---- your delay
 
+global error
+error = ''
 
 def write_to_log(data):
     """function to write the data into the log file"""
@@ -23,7 +25,7 @@ def get_all_image(dir_path) -> list:
     return image_list
 
 
-def upload_image(path_pic):
+def upload_image(path_pic) -> bool:
     """request to upload an image to instagram profile picture"""
     p_pic_s = os.path.getsize(path_pic)
     headers = {
@@ -47,20 +49,30 @@ def upload_image(path_pic):
     files = {'profile_pic': open(path_pic, 'rb')}
     values = {"Content-Disposition": "form-data", "name": "profile_pic", "filename": "profilepic.jpg",
               "Content-Type": "image/jpeg"}
-
-    r = requests.post(url, files=files, data=values, headers=headers)
-    write_to_log(r.text)
+    try:
+        r = requests.post(url, files=files, data=values, headers=headers)
+        write_to_log(r.text)
+        return True
+    except Exception as e:
+        global error
+        error = e
+        return False
 
 
 def change_every_x_time(time):
     """change your instagram profile picture every x time"""
     while True:
         all_images = get_all_image(main_path+"/pfp_list")
+        print(all_images)
         shuffle(all_images)
-        for i in all_images:
-            upload_image(i)
-            sleep(time)
 
+        #if the request fail then sleep 10s en retry the request with the next image; else just sleep the gived time
+        for i in all_images:
+            if upload_image(i)==False:
+                print(error)
+                sleep(10)
+            else:
+                sleep(time)
 
 if __name__ == "__main__":
     change_every_x_time(delay)

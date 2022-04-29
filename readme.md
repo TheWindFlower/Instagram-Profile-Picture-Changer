@@ -14,10 +14,25 @@
 pip3 install request
 ```
 
+## What does this script do ?
+
+the script will change your instagram profile picture every x time, by using your cookie
+
+## Usage guide :
+
+- Install all dependencies
+- clone or download the repo
+- create a pfp_list directory
+- put your profiles pictures in the pfp_list directory
+- add your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://github.com/TheWindFlower/instagram_profile_picture_changer#get-x-csrftoken-x-instagram-ajax-and-instagram-cookie) in the script
+- [set your delay and the path](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
+- run the code and have fun
+
 ### Customisation
 
 - set your delay between change in seconde
 - ![alt text](https://media.discordapp.net/attachments/849279007626625024/969271042222723172/unknown.png)
+- set the path of your python file line 6(the directory should containe the python file, a directory named pfp_list and a log.log file)
 
 ### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
 
@@ -30,17 +45,3 @@ pip3 install request
 - ![alt text](https://media.discordapp.net/attachments/849279007626625024/969277032829714482/unknown.png)
 - now you just need to put them in the script :
 - ![alt text](https://media.discordapp.net/attachments/849279007626625024/969279156275798066/unknown.png)
-
-## What does this script do ?
-
-the script will change your instagram profile picture every x time, by using your cookie
-
-## Usage guide :
-
-- Install all dependencies
-- clone or download the repo
-- create a pfp_list directory
-- put your profiles pictures in the pfp_list directory
-- add your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://github.com/TheWindFlower/instagram_profile_picture_changer#get-x-csrftoken-x-instagram-ajax-and-instagram-cookie) in the script
-- [set your delay](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
-- run the code and have fun
