@@ -1,6 +1,6 @@
 # Instagram profile picture changer
 
-## _a little script is written in python to automatically change your Instagram profile picture_
+## _a little script written in python to automatically change your Instagram profile picture_
 
 ## Requirements :
 
