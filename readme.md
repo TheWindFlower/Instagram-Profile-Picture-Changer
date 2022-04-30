@@ -41,7 +41,8 @@ the script will change your instagram profile picture every x time, by using you
   ![alt text](https://cdn.discordapp.com/attachments/849279007626625024/969274423481868329/unknown.png)
 - click on one of the request
   ![alt text](https://media.discordapp.net/attachments/849279007626625024/969275638802423888/unknown.png)
-- then scroll all the way down on the request tab and you have all the stuff you need (if one of them is missing try another request)
+- then scroll all the way down on the request tab and you have all the stuff you need
+- ! _if one of them is missing try another request_
   ![alt text](https://media.discordapp.net/attachments/849279007626625024/969277032829714482/unknown.png)
 - now you just need to put them in the script :
   ![alt text](https://media.discordapp.net/attachments/849279007626625024/969279156275798066/unknown.png)
