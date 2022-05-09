@@ -10,7 +10,7 @@ class main:
     delay = None # <---- your delay (not used if you set a hour_to_change)
     hour_to_change = None #<---- your hour to change (not used if you set a delay)
 
-    def long_sleep(sleep_time):
+    def long_sleep(sleep_time) -> None:
         i=0
         while i<=sleep_time:
             local_sleep_time = sleep_time/10
@@ -19,7 +19,7 @@ class main:
             print("sleeping left:"+str(round((sleep_time-i+1), 2))+'s', end='\r')
 
 
-    def write_to_log(self, data):
+    def write_to_log(self, data) -> None:
         print("wrinting to log")
         """function to write the data into the log file"""
         with open(self.main_path+"/log.log", "a") as f:
@@ -70,7 +70,7 @@ class main:
             return False
 
 
-    def change_pfp(self):
+    def change_pfp(self) -> None:
         """change your instagram profile picture every x time"""
         print("starting program")
         while True:
