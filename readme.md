@@ -30,9 +30,9 @@ the script will change your instagram profile picture every x time, by using you
 
 ### Customisation
 
-- set your delay between change in second
-  ![alt text](https://media.discordapp.net/attachments/849279007626625024/969271042222723172/unknown.png)
-- set the path of your python file line 6(the directory should containe the python file, a directory named pfp_list and a log.log file)
+- set your delay between change in second line 10, or an hour to change the pfp line 11
+  ![alt text](https://cdn.discordapp.com/attachments/849279007626625024/973085626738040892/Screenshot_from_2022-05-09_06-53-56.png)
+- set the path of your python file line 9(the directory should containe the python file, a directory named pfp_list and a log.log file)
 
 ### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
 
