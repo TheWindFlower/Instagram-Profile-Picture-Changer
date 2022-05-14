@@ -1,31 +1,36 @@
 import os
 import requests
-from time import sleep, time
+from time import sleep
 from random import shuffle
 from datetime import datetime
+from sys import argv
 
 
 class main:
-    main_path = '' # <---- your path to the directory of the python file
-    delay = None # <---- your delay (not used if you set a hour_to_change)
-    hour_to_change = None #<---- your hour to change (not used if you set a delay)
+    # the path of the directory containing this python file
+    main_path = ''
+    # your delay (not used if you set a hour_to_change)
+    delay = None
+    # your hour to change (not used if you set a delay)
+    hour_to_change = None
 
+    # methode
     def long_sleep(sleep_time) -> None:
-        i=0
-        while i<=sleep_time:
-            local_sleep_time = sleep_time/10
+        """advanced sleep function with progress bar"""
+        local_sleep_time = sleep_time/50
+        print('░'*50, end='\r')
+        for i in range(50):
+            print('█'*(i+1)+'░'*(50-i)+(str(i*2))+'% '+'sleeping left:' +
+                  str(round((sleep_time-(local_sleep_time*i)), 2))+'s', end='\r')
             sleep(local_sleep_time)
-            i+=local_sleep_time
-            print("sleeping left:"+str(round((sleep_time-i+1), 2))+'s', end='\r')
 
-
-    def write_to_log(self, data) -> None:
-        print("wrinting to log")
+    def write_to_log(data) -> None:
         """function to write the data into the log file"""
-        with open(self.main_path+"/log.log", "a") as f:
+        print("wrinting to log")
+        with open(main.main_path+"/log.log", "a") as f:
             data = str(data)
-            f.write(str(time())+':'+data+"\n"+"\n")
-
+            now = datetime.now().strftime("%D at %H:%M:%S")
+            f.write(str(now)+'-->'+data+"\n"+"\n")
 
     def get_all_image(dir_path) -> list:
         """function to get all image in a directory"""
@@ -36,80 +41,82 @@ class main:
                     image_list.append(os.path.join(root, file))
         return image_list
 
-
-    def upload_image(self, path_pic) -> bool:
+    def upload_image(path_pic) -> bool:
         p_pic_s = os.path.getsize(path_pic)
         headers = {
             "Host": "www.instagram.com",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.9 Safari/537.36",
             "Accept": "*/*",
             "Accept-Language": "en-US,en;q=0.5",
+            # your instagram account page (exe:https://www.instagram.com/garfield/)
             "Accept-Encoding": "gzip, deflate, br",
-            "Referer": "YOUR_INTAGRAM_ACCOUT_PAGE", #<---- your instagram account page (exe:https://www.instagram.com/garfield/)
-            "X-CSRFToken": "YOUR_X-CSRFToken",  # <---- your X-CSRFToken
-            "X-Instagram-AJAX": "YOUR_X-Instagram-AJAX",  # <---- your X-Instagram-AJAX
+            "Referer": "YOUR_INTAGRAM_ACCOUT_PAGE",
+            # your X-CSRFToken
+            "X-CSRFToken": "YOUR_X-CSRFToken",
+            # your X-Instagram-AJAX
+            "X-Instagram-AJAX": "YOUR_X-Instagram-AJAX",
             "X-Requested-With": "XMLHttpRequest",
             "Content-Length": str(p_pic_s),  # should also work without this
             "DNT": "1",
             "Connection": "keep-alive",
-            "Cookie":'YOUR_Cookie'  # <---- your cookie
+            # your cookie
+            "Cookie": 'YOUR_Cookie'
         }
 
         url = "https://www.instagram.com/accounts/web_change_profile_picture/"
 
         files = {'profile_pic': open(path_pic, 'rb')}
         values = {"Content-Disposition": "form-data", "name": "profile_pic", "filename": "profilepic.jpg",
-                "Content-Type": "image/jpeg"}
+                  "Content-Type": "image/jpeg"}
         try:
             r = requests.post(url, files=files, data=values, headers=headers)
-            self.write_to_log(r.text)
+            main.write_to_log(r.text)
             return True
+
         except Exception as error:
-            print('\033[1;31;48m'+'error !'+'\033[1;37;0m')
-            self.write_to_log(error)
+            print('\033[1;31;48m'+'error !, '+'\033[1;37;0m')
+            main.write_to_log(error)
             return False
 
-
-    def change_pfp(self) -> None:
-        """change your instagram profile picture every x time"""
+    def change_pfp() -> None:
+        """change your instagram profile picture every x time or at an specified hour"""
         print("starting program")
+
         while True:
-            all_images = self.get_all_image(self.main_path+"/pfp_list")
+            all_images = main.get_all_image(main.main_path+"/pfp_list")
             shuffle(all_images)
 
-            if self.hour_to_change != None:
-                for image in all_images:
-                    self_run = True
-                    trying = 0
-                    while self_run:
-                        now = datetime.now()
-                        
-                        if now.hour == self.hour_to_change: #if it's the hour to change
-                            print('trying to change')
-                            r = self.upload_image(image) #make the request and put the result in r
-                            if r==False: #if the request failed :
-                                trying += 1
-                                
-                                if trying >= 5: #if 5 try have failed:
-                                    print('5 failed try stopping program')
-                                    self.write_to_log("5 failed attemps to make a request, stopping program")
-                                else:
-                                    print('request failed, retry in 5min')
-                                    sleep(300)
-                            else:
-                                print('image applied: '+str(image))
-                                self_run = False #if the request is successful then stop the loop and restart with a new image
-                                self.long_sleep(3600) #wait an 1 hour before looping (to avoid multiple pfp changement in the same hour)
-                        else:
-                            sleep(300) #if it's not 10am then sleep 5min
+            for image in all_images:
+                self_run = True
+                trying = 0
+                while self_run:
+                    now = datetime.now()
 
-            elif self.delay != None:
-                for i in all_images:
-                    if self.upload_image(i)==False:
-                        sleep(10)
+                    condition = now.hour == main.hour_to_change
+
+                    if condition:
+                        print('trying to change')
+                        # make the request and put the result in r
+                        r = main.upload_image(image)
+                        if r == False:  # if the request failed :
+                            trying += 1
+
+                            if trying >= 5:  # if 5 try have failed:
+                                print('5 failed try stopping program')
+                                main.write_to_log(
+                                    "5 failed attemps to make a request, stopping program")
+                            else:
+                                print('request failed, retry in 5min')
+                                sleep(300)
+                        else:
+                            print('image applied: '+str(image))
+                            # if the request is successful then stop the loop and restart with a new image
+                            self_run = False
+                            # wait an 1 hour before looping (to avoid multiple pfp changement in the same hour)
+                            main.long_sleep(3600)
                     else:
-                        sleep(self.delay)
+                        sleep(300)  # if it's not 10am then sleep 5min and loop
 
 
 if __name__ == "__main__":
-    main.change_pfp(main)
+    main.change_pfp()
