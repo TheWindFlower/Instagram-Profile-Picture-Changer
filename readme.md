@@ -24,14 +24,14 @@ the script will change your instagram profile picture every x time, by using you
 - clone or download the repo
 - create a pfp_list directory
 - put your profiles pictures in the pfp_list directory
-- add your [X-CSRFToken, X-Instagram-AJAX and instagram cookie](https://github.com/TheWindFlower/instagram_profile_picture_changer#get-x-csrftoken-x-instagram-ajax-and-instagram-cookie) in the script
-- [set your delay and the path](https://github.com/TheWindFlower/instagram_profile_picture_changer#Customisation)
+- add your [Referer, X-CSRFToken, X-Instagram-AJAX and instagram cookie] in the script (line 75, 77, 79, 84)
+- [set your delay and the path](in the run function)
+- [set your path](main_path function)
 - run the code and have fun
 
 ### Customisation
 
-- set your delay between change in second line 13, or an hour to change the pfp line 15
-- set the path of your python file line 11(the directory should containe the python file, a directory named pfp_list and a log.log file)
+- set your delay between change in the run function
 
 ### get X-CSRFToken, X-Instagram-AJAX and instagram cookie
 
@@ -39,5 +39,5 @@ the script will change your instagram profile picture every x time, by using you
 - open the Web DEveloper Tools and go the the Network tab
 - click on one of the request
 - then scroll all the way down on the request tab and you have all the stuff you need
-- _if one of them is missing try another request_
+- _if one of them is missing try refreshing the page and another request_
 - now you just need to put them in the script:
